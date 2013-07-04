@@ -1,0 +1,11 @@
+.navbar.navbar-fixed-top.navbar-main
+  .navbar-inner
+    .container-fluid
+      button.btn.btn-navbar(type="button", data-toggle="collapse", data-target=".nav-collapse")
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      a.brand(href="/") Caliper documentation
+      .nav-collapse.collapse.pull-right
+        ul.nav
+          li(class="#{ current.source=='faq'?'active':'' }"): a(href="http://app.caliper.io/") Go back to Caliper.io

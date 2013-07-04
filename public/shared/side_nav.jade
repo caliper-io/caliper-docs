@@ -1,0 +1,20 @@
+//- pre= JSON.stringify(, null, 2)
+ul.nav.nav-tabs.nav-stacked.index
+  // li
+  //  form(method="get", action="/search")
+  //    input.search-query(type="text", name="q", placeholder="Search")
+  //
+
+  li(class="#{ current.path[0]== 'index' ? 'active':'' }"): a(href="/") Introduction
+
+  li(class="#{ current.path[0]=='how-does-caliper-work'?'active':''}"): a(href="/how-does-caliper-work") How does Caliper work?
+
+  li(class="#{ current.path[0]=='installation'?'active':'' }"): a(href="/installation") Installation
+
+  li(class="#{ current.path[0]=='configuration'?'active':'' }"): a(href="/configuration") Configuration Variables
+
+  li(class="#{ current.path[0]=='notifications'?'active':'' }"): a(href="/notifications") Notifications
+
+  li(class="#{ current.path[0]=='troubleshooting'?'active':'' }"): a(href="/troubleshooting") Troubleshooting
+
+  li(class="#{ current.path[0]=='contact-us'?'active':'' }"): a(href="/contact-us") Contact us

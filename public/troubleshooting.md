@@ -36,4 +36,4 @@ You can though add naming quite easily to you backbone views.
 
 We have a couple of filters to optimize what is recorded and save on client bandwidth. It could be that this is preventing some data to appear in our dashboard.
 
-Check out the [configuration variables] on our library for more information and also enable debug if you would like to see more information.
+Check out the [configuration variables](/configuration.html) on our library for more information and also enable debug if you would like to see more information.

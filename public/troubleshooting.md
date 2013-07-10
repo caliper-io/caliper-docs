@@ -11,7 +11,7 @@ If nothing is appearing in Caliper then there are a few possibilities.
 
 For us to correctly measure parts of your application, Caliper must be loaded after your framework has been initialized and before your code.
 
-If it is loaded after your application your javascript objects will not be instiated with the Caliper instrumentation.
+If it is loaded after your application your javascript objects will not be instantiated with the Caliper instrumentation.
 
 #### - Check the console for errors
 
@@ -30,7 +30,6 @@ The default is set to 10ms. It could be that your testing has not exceeded this 
 
 This is because our library hasn't been able to determine the name correctly.
 You can though add naming quite easily to you backbone views.
-
 
 ### Not everything is appearing in my dashboard
 

@@ -19,10 +19,12 @@ Ignore actions that are not associated with an AJAX request. If the value is set
 
 ### Minimum Duration
 Key: `minDuration`
-Default: `10`
+Default: `50`
 Type: `Integer`
 
 Minimum reporting Action duration in ms. If the duration of an action is below this value, then the action will be dropped and will not be reported back to the Caliper API. A setting of `0` means use the default.
+
+The default has been set to 50 so that Caliper focuses on showing you only things that are slow for visiting users. This also limits the amount of data sent from your visitors.
 
 ### API Key
 __required__
@@ -39,7 +41,7 @@ Key: `beaconURL`
 Default: `//b.caliper.io/_.gif`
 Type: `URL`
 
-The beacon URL setting is used to determine where telemetry updates are sent to. 
+The beacon URL setting is used to determine where telemetry updates are sent to.
 You'll probably never want to change this setting.
 
 ### Debug Mode

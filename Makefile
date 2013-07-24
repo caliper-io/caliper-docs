@@ -13,7 +13,7 @@ build:
 
 .PHONY: deploy
 deploy:
-	ssh deploy@caliper.io -A 'cd /data/www/docs.caliper.io && make build'
+	ssh deploy@caliper.io -A 'cd /data/www/docs.caliper.io && git pull && make build'
 
 run:
 	$(HARP) server

@@ -3,14 +3,11 @@
 Since `caliper.backbone.js` v0.3.0, [AMD](https://github.com/amdjs/amdjs-api/wiki/AMD) is officially supported, allowing you to convinently load Caliper using [RequireJS](http://requirejs.org/). Follow the following steps:
 
 1. Config your API key
-2. Include `caliper.backbone.min.js` on your page (or concatenate it to your asset bundle)
+2. Include `caliper.backbone.amd.min.js` on your page (or concatenate it to your asset bundle)
 3. Add `caliper-backbone` as a dependency to all your modules that depends on Backbone, for example:
 
 ```javascript
-define("marionette", ["underscore", "backbone", ..., "caliper-backbone"], function(_, Backbone){
-  ...
-  return Mationette;
-});
+define("marionette", ["underscore", "backbone", ..., "caliper-backbone"], ...);
 
 define("MyView", ["backbone", "caliper-backbone"], function(Backbone){
   return Backbone.View.extend({
@@ -23,24 +20,17 @@ define("MyView", ["backbone", "caliper-backbone"], function(Backbone){
 
 ### Implementation Details
 
-When included, `caliper.backbone.js` checks for the presence of the `define` function, if it is absent, Caliper will be loaded immediately just like the previous versions. When `define` is found, it defines two modules with the following signitures instead:
+`caliper.backbone.amd.min.js` defines a named AMD module with the following signiture:
 
 ```javascript
-define("caliper-core", [], function(){
-  ...
-  return Caliper;
-});
-
-define("caliper-backbone", ["caliper-core", "backbone", "underscore", "jquery"],
-  function(Caliper, Backbone, _, $){
-    ...
+define("caliper-backbone", [backbone", "underscore", "jquery"],
+  function(Backbone, _, $){
+    // Caliper's extensions to Backbone goes here
     return Backbone;
   });
 ```
 
-The first module, `caliper-core` contains some Caliper utility functions. Typically you would not have to require this directly.
-
-The second module, `caliper-backbone` contains the Caliper extensions to Backbone. As it lists "backbone", "underscore" and "jquery" as its dependencies, you should make sure the corresponding packages are defined with those IDs. If they are defined with a different ID, you can ["alias" them in your RequireJS config](http://requirejs.org/docs/api.html#config-paths):
+As it lists "backbone", "underscore" and "jquery" as its dependencies, you should make sure the corresponding packages are defined with those IDs. If they are defined with a different ID, you can ["alias" them in your RequireJS config](http://requirejs.org/docs/api.html#config-paths):
 
 ```javascript
 require.config({
@@ -54,7 +44,7 @@ require.config({
 
 You should make sure this module is loaded before you define your Backbone views and routers. This includes libaries such as [Marionette](http://marionettejs.com/) that extends core Backbone classes.
 
-To do this, you would typically add `caliper-backbone` as a dependency to your modules that depends on Backbone. For your convinence, the `caliper-backbone` package is setup to return the extended `Backbone` object. This means you may directly depend on `caliper-backbone` if you prefer:
+To do this, you would typically add `caliper-backbone` as a dependency to your modules that depends on Backbone. For your convinence, the `caliper-backbone` package is setup to return the extended `Backbone` object. This means you may simply depend on `caliper-backbone` if you prefer:
 
 ```javascript
 define("MyView", ["caliper-backbone"], function(Backbone){

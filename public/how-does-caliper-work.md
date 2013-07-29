@@ -1,10 +1,11 @@
 ## How does Caliper work?
 
-Caliper instruments from your users browser. We hook into the framework that your application is built with so that we can show you a meaningful representation of how your user interacts with your web application.
+Caliper instruments web apps directly in the browser. We hook into the framework layer of your application so we can show you a meaningful representation of how your user interacts with your web application.
 
 ### What we measure
 
 When building front end web applications, conventional page load times only reflects the loading time of an application.
+While this number is critical, this only represents a small amount of the time spent with your application.
 
 Caliper is built to provide a full view of runtime performance as your users interacts with your front end web applications.
 
@@ -12,9 +13,12 @@ Currently we are sending two types of traces:
 
 #### <i class="ss-signpost"></i> Routes
 
-A route change occurs when a user transitions from one part of the application to another. This is analogous to switching from one page to another a conventional web application.
+A route change occurs when a user transitions from one part of the application to another. 
+This is analogous to switching from one page to another a conventional web application. 
 
-For Backbone.js applications, this is handled by the Backbone Router. When a the active route changes in the router, we monitor the time it takes for your route handlers (and callbacks) to respond.
+For Backbone.js applications, this is handled by the Backbone Router. 
+When a the active route changes in the router, we monitor the time it takes for your route handlers (and callbacks) to respond.
+This may or may not include an AJAX request.
 
 #### <i class="ss-cursor"></i> Actions
 
@@ -38,7 +42,7 @@ A "Action" trace would then be reported back to Caliper with this end-to-end res
 
 ### What else do we collect
 
-We collect a number of other things that will soon help what are soon to release.
+Caliper collects other telemetry: 
 
   - We store all measurements against a unique visitor session to view all events and routes visited
   - A visitor is unique and we'll allow classification of them by email
@@ -46,11 +50,11 @@ We collect a number of other things that will soon help what are soon to release
 
 ### Our Javascript
 
-We follow these design principles with our javascript library.
+We adhere to these design principles with our javascript library.
 
   - Keep it's footprint low and small
   - To not perform expensive computation
-  - Always send Caliper the lowest amount of information to ensure low bandwidth on Mobiles
+  - Always send Caliper the lowest amount of information to limit network utilization
   - Never take down your application
 
 And to do this we run automated tests on our library across a number of browsers. Currently IE8 upwards, Firefox, Chrome, Safari and the iOS webkit browser.

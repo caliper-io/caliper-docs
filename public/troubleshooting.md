@@ -20,16 +20,13 @@ It's unlikely but possible that there is an error loading resources.
 Check to make sure that Caliper is being loaded correctly in your browsers
 network request page, and check the console for any specific errors.
 
-#### - Minimum Duration
+#### - Minimum duration
 
-Minimum Duration is a setting you can use to filter out very fast measurements for either routes or events.
-
-The default is set to 10ms. It could be that your testing has not exceeded this duration.
+Minimum duration is a setting you can use to filter out traces with a very short duration to limit the amount of data being sent. The default is set to 50ms. It could be that your tests did not exceed this duration.
 
 ### I see lots of Unnamed Views
 
-This is because our library hasn't been able to determine the name correctly.
-You can though add naming quite easily to you backbone views.
+Refer to the setup instructions for your app on [http://app.caliper.io/] for instructions on naming your backbone views.
 
 ### Not everything is appearing in my dashboard
 

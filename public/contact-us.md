@@ -1,8 +1,6 @@
 # Contact us
 
-We're more than happy to answer any questions or listen to your feature
-requests.  
-There a couple of ways you can get in touch with us.
+We're more than happy to answer any questions or listen to your feature requests. There a couple of ways you can get in touch with us.
 
 ## Email
 

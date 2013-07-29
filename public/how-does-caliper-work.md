@@ -4,27 +4,37 @@ Caliper instruments from your users browser. We hook into the framework that you
 
 ### What we measure
 
-When building front end applications that run in a browser conventional page load times only provide developers a the loading time of an application.
+When building front end web applications, conventional page load times only reflects the loading time of an application.
 
-Caliper is built to provide a full view of a front end application.
+Caliper is built to provide a full view of runtime performance as your users interacts with your front end web applications.
 
-Currently we measure two parts of your application.
+Currently we are sending two types of traces:
 
 #### <i class="ss-signpost"></i> Routes
 
-A route is when a user switches from one part of the application to another. For example in BackboneJS the Backbone Router handles this.
+A route change occurs when a user transitions from one part of the application to another. This is analogous to switching from one page to another a conventional web application.
 
-We calculate the best human readable name for this route and measure how long it took to load for the user.
+For Backbone.js applications, this is handled by the Backbone Router. When a the active route changes in the router, we monitor the time it takes for your route handlers (and callbacks) to respond.
 
-#### <i class="ss-cursor"></i> Events
+#### <i class="ss-cursor"></i> Actions
 
-An event is when a user clicks or hovers on something that in turn performs some javascript work. This could be for example when a user fills in a form in your application and submits the data.
+An action occurs when your application handles user action (click, keypress, mouseover, etc) and perform some meaningful work in reponse to the user's requests. Examples include fetching extra posts for display when a user click on the "Load more..." button, or sending data back to the server when a user submits a form.
+
+For Backbone.js applications, we monitor any custom event handles defined in your Views (defined under the `events` property of a Backbone View).
 
 ### Measurement breakdown
 
-In both types of measurements (routes and events) we record the time it takes your application to interact with backend services (AJAX) and javascript rendering (views).
+In order to give you a better picture of your users' actual experience, we record the end-to-end time it takes to completely fufill the user's request for both types of traces (Routes and Actions). We also provide a breakdown on how the time are spent in the duration of a measurement to help you determine where a problem may lie.
 
-This can help you determine where a problem may lie with your application.
+Currently we take into account the time it takes for your application to interact with your backend services (AJAX requests) and javascript rendering time.
+
+Consider the following example in a news reader application.
+
+A user clicked on the "Load more..." button which triggered a custom event handler. The event handler dispatched an asynchronous backend request (an AJAX request) to fetch more news stories, rendered a "Loading..." view and returned control to the browser. At this point, although the custom event handler had finished execution, from the user's perspective their request had not yet been fufilled.
+
+A few momnts later, the backend server completed the request and delivered the requested news stories. A callback on the request was triggered, which removed the "Loading..." view and rendered the the news stories on the screen before returning control to the browser. At this point, the user's requrst had been fufilled and an end-to-end response time could be calculated.
+
+A "Action" trace would then be reported back to Caliper with this end-to-end response time, as well as a breakdown of the AJAX requests performed, views rendered and their respective duration.
 
 ### What else do we collect
 

@@ -17,8 +17,7 @@ A route change occurs when a user transitions from one part of the application t
 This is analogous to switching from one page to another a conventional web application. 
 
 For Backbone.js applications, this is handled by the Backbone Router. 
-When the active route changes in the router, we monitor the time it takes for your route handlers (and callbacks) to respond.
-This may or may not include an AJAX request.
+When the active route changes in the router, we monitor the time it takes for your application to respond (executing route handlers, callbacks, AJAX requests to backend services, additional views rendering etc - see the section on measurement breakdown for details).
 
 #### <i class="ss-cursor"></i> Actions
 

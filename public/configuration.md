@@ -32,7 +32,35 @@ Type: `Boolean`
 
 Turning debug mode on will enable console logging. This can be useful when troubleshooting potential issues or missed traces when using settings like `enableAjaxFilter` and `minDuration`.
 
+### Enable or Disable Caliper
+
+Key: `enabled`
+Default: `true`
+Type: `Boolean`
+
+Conditionally enable or diable caliper. When this is set to false, Caliper will not be initialized and no traces will be sent. This could be used to disable caliper in your development environment, sample only a subset of your visitors, etc. For example:
+
+```javascript
+<script type="text/javascript">
+    var Caliper = {
+        config: {
+            apiKey: "my-api-key",
+            enabled: (Math.random() > 0.5) // Only sample 50% of your visitors
+        }
+    };
+</script>
+```
+
+### Visitor ID
+
+Key: `visitor`
+Default: `undefined`
+Type: `String`
+
+Assign a visitor ID for the current visitor. Typically, you would set this to the email or username of the logged in user. If this is not set, a unique visitor ID will be generated to track this browser using a "first-party" cookie on your domain.
+
 ### Ajax Filter
+
 Key: `enableAjaxFilter`
 Default: `false`
 Type: `Boolean`
@@ -40,6 +68,7 @@ Type: `Boolean`
 Ignore traces that are not associated with an AJAX request. If the value is set to `true` and a trace did not include an AJAX request, then the trace will not be reported back to the Caliper servers.
 
 ### Minimum Duration
+
 Key: `minDuration`
 Default: `50`
 Type: `Integer`

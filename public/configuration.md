@@ -44,6 +44,7 @@ Conditionally enable or diable caliper. When this is set to false, Caliper will 
 <script type="text/javascript">
     var Caliper = {
         config: {
+
             apiKey: "my-api-key",
             enabled: (Math.random() > 0.5) // Only sample 50% of your visitors
         }
@@ -51,13 +52,13 @@ Conditionally enable or diable caliper. When this is set to false, Caliper will 
 </script>
 ```
 
-### Visitor ID
+### <a id="visitor"></a>Visitor
 
 Key: `visitor`
 Default: `undefined`
 Type: `String`
 
-Assign a visitor ID for the current visitor. Typically, you would set this to the email or username of the logged in user. If this is not set, a unique visitor ID will be generated to track this browser using a "first-party" cookie on your domain.
+Assign visitor information to traces collected in a session. Typically, you would set this to the email or username of the logged in user. If this is not set, a unique visitor ID will be generated to track this browser using a "first-party" cookie on your domain.
 
 ### Ajax Filter
 

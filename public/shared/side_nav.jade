@@ -5,9 +5,11 @@ ul.nav.nav-tabs.nav-stacked.index
   //    input.search-query(type="text", name="q", placeholder="Search")
   //
 
-  li(class="#{ current.path[0]== 'index' ? 'active':'' }"): a(href="/") Introduction
+  li(class="#{ current.path[0]=='index' ? 'active':'' }"): a(href="/") Introduction
 
-  li(class="#{ current.path[0]=='how-does-caliper-work'?'active':''}"): a(href="/how-does-caliper-work.html") How does Caliper work?
+  li(class="#{ current.path[0]=='understanding-the-backbone-js-adapter'?'active':''}"): a(href="/understanding-the-backbone-js-adapter.html") Understanding the Backbone.js adapter
+
+  li(class="#{ current.path[0]=='understanding-the-ember-js-adapter'?'active':''}"): a(href="/understanding-the-ember-js-adapter.html") Understanding the Ember.js adapter
 
   li(class="#{ current.path[0]=='installation'?'active':'' }"): a(href="/installation.html") Installation
 

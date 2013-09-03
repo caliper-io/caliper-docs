@@ -2,7 +2,7 @@
 
 Caliper instruments web apps directly in the browser. We hook into the framework layer of your application so we can show you a meaningful representation of how your user interacts with your web application.
 
-### What we measure
+### What we trace
 
 When building front end web applications, conventional page load times only reflects the loading time of an application.
 While this number is critical, this only represents a small amount of the time spent with your application.
@@ -13,11 +13,13 @@ Currently we are sending two types of traces:
 
 #### <i class="ss-signpost"></i> Routes
 
-A route change occurs when a user transitions from one part of the application to another. 
-This is analogous to switching from one page to another a conventional web application. 
+A route change occurs when a user transitions from one part of the application to another.
+This is analogous to switching from one page to another a conventional web application.
 
-For Backbone.js applications, this is handled by the Backbone Router. 
-When the active route changes in the router, we monitor the time it takes for your application to respond (executing route handlers, callbacks, AJAX requests to backend services, additional views rendering etc - see the section on measurement breakdown for details).
+For Backbone.js applications, this is handled by the Backbone Router.
+When the active route changes in the router, we monitor the time it takes for your application to respond (executing route handlers, callbacks, AJAX requests to backend services, additional views rendering etc - see the section on trace breakdown for details).
+
+In Ember.js applications these are the routes delcared with the <a href="http://emberjs.com/guides/routing/">Ember.Router</a>.
 
 #### <i class="ss-cursor"></i> Actions
 
@@ -25,9 +27,11 @@ An action occurs when your application handles user action (click, keypress, mou
 
 For Backbone.js applications, we monitor any custom event handles defined in your Views (defined under the `events` property of a Backbone View).
 
-### Measurement breakdown
+For Ember.js actions are the events handled by Controllers, Views or even Routes.
 
-In order to give you a better picture of your users' actual experience, we record the end-to-end time it takes to completely fufill the user's request for both types of traces (Routes and Actions). We also provide a breakdown on how the time are spent in the duration of a measurement to help you determine where a problem may lie.
+### Trace breakdown
+
+In order to give you a better picture of your users' actual experience, we record the end-to-end time it takes to completely fufill the user's request for both types of traces (Routes and Actions). We also provide a breakdown on these traces to help you determine where a problem may lie.
 
 Currently we take into account the time it takes for your application to interact with your backend services (AJAX requests) and javascript rendering time.
 
@@ -41,9 +45,9 @@ A "Action" trace would then be reported back to Caliper with this end-to-end res
 
 ### What else do we collect
 
-Caliper collects other telemetry: 
+Caliper collects other telemetry:
 
-  - We store all measurements against a unique visitor session to view all events and routes visited
+  - We store all traces against a unique visitor session to view all events and routes visited
   - A visitor is unique and we'll allow classification of them by email
   - Browser and OS is recorded on the incoming visitor session to help visualize device performance
 

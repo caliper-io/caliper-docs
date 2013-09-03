@@ -1,6 +1,6 @@
 ## AMD / RequireJS
 
-For convenience we provide [RequireJS](http://requirejs.org/) builds of our plugins. Follow the following steps (Backbone.js plugin used in example):
+For convenience we provide [RequireJS](http://requirejs.org/) builds of our adapters. Follow the following steps (Backbone.js adapter used in example):
 
 1. Config your API key
 2. Include `caliper.backbone.amd.min.js` on your page (or concatenate it to your asset bundle)

@@ -60,6 +60,12 @@ Type: `String`
 
 Assign visitor information to traces collected in a session. Typically, you would set this to the email or username of the logged in user. If this is not set, a unique visitor ID will be generated to track this browser using a "first-party" cookie on your domain.
 
+If your application authenticates users after your app is first rendered you may set this configuration variable at any time:
+
+```javascript
+Caliper.config.visitor = "myuser@example.com";
+```
+
 ### Ajax Filter
 
 Key: `enableAjaxFilter`

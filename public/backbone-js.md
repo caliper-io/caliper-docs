@@ -1,10 +1,6 @@
-## Understanding the Backbone.js adapter
+## Backbone.js
 
-### How does Caliper work?
-
-Caliper instruments web apps directly in the browser. We hook into the framework layer of your application so we can show you a meaningful representation of how your user interacts with your web application.
-
-### What we trace
+### What do we trace?
 
 When building front end web applications, conventional page load times only reflects the loading time of an application.
 While this number is critical, this only represents a small amount of the time spent with your application.

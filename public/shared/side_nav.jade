@@ -7,13 +7,15 @@ ul.nav.nav-tabs.nav-stacked.index
 
   li(class="#{ current.path[0]=='index' ? 'active':'' }"): a(href="/") Introduction
 
-  li(class="#{ current.path[0]=='understanding-the-backbone-js-adapter'?'active':''}"): a(href="/understanding-the-backbone-js-adapter.html") Understanding the Backbone.js adapter
+  li(class="#{ current.path[0]=='how-does-it-work'?'active':''}"): a(href="/how-does-it-work.html") How does Caliper work?
 
-  li(class="#{ current.path[0]=='understanding-the-ember-js-adapter'?'active':''}"): a(href="/understanding-the-ember-js-adapter.html") Understanding the Ember.js adapter
+  li.nested(class="#{ current.path[0]=='backbone-js'?'active':''}"): a(href="/backbone-js.html") Backbone.js
+
+  li.nested(class="#{ current.path[0]=='ember-js'?'active':''}"): a(href="/ember-js.html") Ember.js
 
   li(class="#{ current.path[0]=='installation'?'active':'' }"): a(href="/installation.html") Installation
 
-  li.nested(class="#{ current.path[0]=='amd-installation'?'active':'' }"): a(href="/amd-installation.html") AMD / RequireJS
+    li.nested(class="#{ current.path[0]=='amd-installation'?'active':'' }"): a(href="/amd-installation.html") AMD / RequireJS
 
   li(class="#{ current.path[0]=='visitors'?'active':'' }"): a(href="/visitors.html") Visitor Tracking
 

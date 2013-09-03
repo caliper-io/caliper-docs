@@ -1,15 +1,11 @@
-## Understanding the Ember.js adapter
-
-### How does Caliper work?
-gi
-Caliper instruments your web application directly in your users' browsers. We hook into the framework layer of your application (in this case, Ember.js) so we can show you a meaningful representation of how your user interacts with your application.
+## Ember.js
 
 When building Ember.js applications, conventional real user monitoring (RUM) focusing on page load times (the `DOMContentLoaded` and `onload` event timestamps) only reflects the initial loading time of your application.
 While this number is critical, this does not provide any indication of your users' experience as they continue to interact with the application once it's loaded, which is what they spend the majority of their time doing.
 
 Caliper is built to provide a full view of runtime performance as your users interacts with your application.
 
-### What do we instrument?
+### What do we trace?
 
 It's our job to help you improve your user's experience when using your application.
 We have all experienced the frustration when you clicked on a button on the screen and had to wait a long time for the computer to respond.

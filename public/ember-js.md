@@ -13,7 +13,7 @@ We would like to help you discover these problem areas in your application so th
 
 To achieve this goal, we are focused on reporting "end-to-end" application response times of your application to give you a holistic view of your user's experience. Each trace Caliper sends correspond to the time spent between the user initiating the request (e.g. clicking on a link created with the `{{#link-to}}` helper or typing in a search field) to the requested data became fully avaialble and ready to be interacted with (models are loaded, views are updated, etc).
 
-Currently we are collecting this timing information from two main entry points in your Ember app: route transitions and view/controller/route events.
+Currently we are collecting this timing information from two main entry points in your Ember app: route transitions and actions.
 
 #### <i class="ss-signpost"></i> Route transitions
 
@@ -23,13 +23,15 @@ Whenever the Ember router enters a new route (or when the model of the current r
 
 If another trace has already been started (e.g. when processing the parent route or the previous route that redirected to the current route), it will be renamed to point to the current route while preserving the original start timestamp, so that your traces will always be grouped under the "leaf" routes.
 
-#### <i class="ss-cursor"></i> View/controller/route events
+#### <i class="ss-cursor"></i> Actions
 
-In an Ember.js app, there are two ways to handle user interactions &mdash; by handling the native browser events in a view (e.g. by implementing a `click` method) and by sending application events handled in the controllers and routes (e.g. by using the `{{action}}` helper or `controller.send()`).
+In an Ember.js app, there are two ways to handle user interactions &mdash; by handling the native browser events in a view (e.g. by implementing a `click` method) and by sending application action (e.g. by using the `{{action}}` helper or `controller.send()`).
 
-In both cases, Caliper would start a new trace with the name of the view/controller/route as well as the name of the event (e.g. `PlayButtonView.click` or `HistogramView.didMakeSelection`). Similar to route transitions, Caliper would wait for Ember to complete any related processing before reporting it back to our server.
+**Note**: Before Ember.js 1.0.0-rc.8, "actions" are called "events" in Routes. It has since been renamed into actions consistently across different components in Ember.
 
-If one of the event handlers triggered a route transition when processing the event, the trace will be renamed to point the the route being entered while preserving the original start timestamp. For example, when a user clicks on a link created with the `{{#link-to}}` helper, you will see something like `/posts/:id` instead of `LinkView.click`.
+In both cases, Caliper would start a new trace with the name of the view/controller/route as well as the name of the action (e.g. `PlayButtonView.click` or `HistogramView.didMakeSelection`). Similar to route transitions, Caliper would wait for Ember to complete any related processing before reporting it back to our server.
+
+If one of the handlers triggered a route transition when processing the action, the trace will be renamed to point the the route being entered while preserving the original start timestamp. For example, when a user clicks on a link created with the `{{#link-to}}` helper, you will see something like `/posts/:id` instead of `LinkView.click`.
 
 ### Trace breakdown
 

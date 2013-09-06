@@ -40,11 +40,13 @@ Currently we record the timing for any AJAX requests and any `Ember.View.render`
 
 ### Caveats and known issues
 
+  - Browser events handled in a view's `eventManager` does not start a trace.
+
+  - Currently, we only provide timing breakdown for AJAX requests that goes through `jQuery.ajax()`. This should cover the majority of persistence framework such as `ember-data`, `ember-model`, `epf`, etc.
+
   - In order to get a accurate timestamp as early as possible and to account for the time taken by your application to load additional modules and models, we reopened `Ember.Route` to implement the `beforeModel` hook. If you have implmented this hook in your routes, you should call `this._super()` at the top of your implementation to ensure an accurate timestamp.
 
   - If you have a custom `init` implementation in your routes, you make sure you are calling `this._super()`.
-
-  - We currently only include timing breakdown for AJAX requests that goes through `jQuery.ajax()`.
 
   - Traces are sent at the end of the last Ember runloop to ensure all computed propoerties and view updates have been completed. However, this will not account for any asynchronous callbacks set with `window.setTimeout`. You should make sure your code are always scheduled to run inside an Ember runloop by using `Ember.run.*`.
 

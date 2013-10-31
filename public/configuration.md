@@ -30,7 +30,7 @@ Key: `debug`
 Default: `false`
 Type: `Boolean`
 
-Turning debug mode on will enable console logging. This can be useful when troubleshooting potential issues or missed traces when using settings like `enableAjaxFilter` and `minDuration`.
+Turning debug mode on will enable console logging. This can be useful when troubleshooting potential issues or missed traces when using settings like `minDuration`.
 
 ### Enable or Disable Caliper
 
@@ -65,14 +65,6 @@ If your application authenticates users after your app is first rendered you may
 ```javascript
 Caliper.config.visitor = "myuser@example.com";
 ```
-
-### Ajax Filter
-
-Key: `enableAjaxFilter`
-Default: `false`
-Type: `Boolean`
-
-Ignore traces that are not associated with an AJAX request. If the value is set to `true` and a trace did not include an AJAX request, then the trace will not be reported back to the Caliper servers.
 
 ### Minimum Duration
 

@@ -2,6 +2,23 @@
 
 To install Caliper simply follow the instructions under the setup page from under your application in [Caliper](http://app.caliper.io).
 
+### Packages using Bower
+
+Caliper client libraries are packaged using bower.
+You can optionally download the libraries directly from your application setup
+page in the [Portal](https://app.caliper.io). The bower package includes
+minified standard and AMD versions of the client library.
+
+For Ember
+
+    $ bower install caliper-ember
+
+For Backbone
+ 
+    $ bower install caliper-backbone
+
+### Including Caliper in your app
+
 As an overview you follow these three simple steps.
 
 1. Configure your API key

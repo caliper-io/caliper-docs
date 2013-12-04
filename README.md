@@ -1,17 +1,29 @@
-# Caliper documentation
+[<img src="http://caliper.io/img/logotype_dark_384.png" alt="Caliper logotype" width="192px" />](http://caliper.io)
 
-Documentation site to better provide information for Caliper customers.
+---
 
-## How to use it?
+# Caliper Documentation
 
-### On your own computer
+[Caliper](http://caliper.io) Caliper monitors the performance of your webapps in production. This documentation site, available at [docs.caliper.io](http://docs.caliper.io/), provides detailed information for Caliper customers.
 
-1. [Install Harp SSG](https://github.com/sintaxi/harp#install) on your computer
-2. Open your terminal and start a new project:
+## Run it locally
 
-````
-$ harp server
+1. [Install Harp](http://harpjs.com/docs/environment/install) on your computer
 
-````
+  ```bash
+  sudo npm install -g harp
+  ```
 
-Go to [http://localhost:9966](http://localhost:9966/) from your browser to see your website.
+2. Clone this repository
+
+  ```bash
+  git clone https://github.com/caliper-io/caliper-docs.git
+  ```
+
+3. Serve the Caliper docs:
+
+  ```bash
+  $ harp server caliper-docs
+  ```
+
+  Go to [http://localhost:9000](http://localhost:9000/) from your browser to see the site.

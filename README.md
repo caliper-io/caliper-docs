@@ -23,7 +23,7 @@
 3. Serve the Caliper docs:
 
   ```bash
-  $ harp server caliper-docs
+  harp server caliper-docs
   ```
 
   Go to [http://localhost:9000](http://localhost:9000/) from your browser to see the site.

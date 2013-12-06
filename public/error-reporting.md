@@ -1,16 +1,16 @@
 ## Error Reporting
 
 Error Reporting is an experimental feature in Caliper that helps you monitor
-runtime JavaScript errors in your application. For the time being, you would
+runtime JavaScript errors in your application. Currently, you will
 need to opt-in by adding `captureErrors: true` to your Caliper config. See the
 [configuration section](/configuration.html) for details.
 
-If you enable this feature, we will try to collect the following information
+With Error Reporting enabled, we will try to collect the following information
 when an error occurs:
 
 * The error type (e.g. `ReferenceError`)
-* The error message (e.g. `nothere is not defined`)
-* Stacktrace (when availalbe)
+* The error message (e.g. `notHere is not defined`)
+* Stacktrace (when available)
 * Browser and OS
 * Session information, such as the page URL, visitor, etc
 
@@ -27,20 +27,20 @@ notification preferences in your app's Settings screen.
 1. Where can I see the errors collected by Caliper?
 
   When you have enabled this feature and we have received **at least one
-  error** from your application, you will see "Errors" section.
+  error** from your application, you will see the "Errors" section.
 
 2. What are "Unresolved", "Resolved" and "Ignored" errors?
 
    When a new error is submitted to Caliper it will be marked as "Unreolved".
 
    Once your team has identified and addressed the problem, you can mark it as
-   "Resolved". When an similar error happens again, we will "reopen" the error
+   "Resolved". When a similar error happens again, we will reopen the error
    by marking it as "Unresolved" again.
 
    On the other hand, if your team decided that a particular error is not
    important (e.g. errors caused by buggy browser extensions or third-party
    scripts), you can mark it as "Ignored". Once you ignored an error, it will
-   not be "reopened" by Caliper when it reoccurs.
+   not be reopened by Caliper when it reoccurs.
 
 3. What notifications will I get?
 
@@ -50,36 +50,35 @@ notification preferences in your app's Settings screen.
 4. What is a "ScriptError"? I don't see any actionable information.
 
    As a security measure, browsers will prevent access to the details of errors
-   throw by scripts serverd from a [different origin](http://en.wikipedia.org/wiki/Same-origin_policy).
-   Most browsers redact the type, message and stcktrace for these errrors and
+   throw by scripts serverd from a [different origin](http://en.wikipedia.org/wiki/Same-origin_policy). Most browsers redact the type, message and stacktrace from these errors and
    report a generic "ScriptError" instead.
 
-   This could be problematic if you serve your assets from an extenral domain
+   This could be problematic if you serve your assets from an external domain
    (e.g. a CDN). To work around this, you can whitelist your external scripts
    by using [CORS](https://developer.mozilla.org/en/docs/HTTP/Access_control_CORS).
 
-   In additional to configuring your server (or your CDN), you also need to add
+   In addition to configuring your server (or your CDN), you also need to add
    the `crossorigin` attribute to the `<script>` tags you use to load the page.
 
    For example, if your users are visiting your app from `https://www.myapp.com`:
 
    ```
-   <!-- Errors from the following script are santatized -->
+   <!-- Errors from the following script are sanitized -->
    <script src="//connect.facebook.net/en_US/all.js"></script>
-   
-   <!-- Errors from the following script are not santatized -->
+
+   <!-- Errors from the following script are not sanitized -->
    <script src="//cdn.myapp.com/app.js" crossorigin="anonymous"></script>
    ```
 
-   **Note**: your assets server must be configured properly to resopnd to the
+   **Note**: Your assets server must be configured properly to respond to the
    CORS requests with the proper `Access-Control-*` headers. Otherwise,
    browsers will refuse to load the scripts with the `crossorigin` attribute
    added.
 
 5. Why does Caliper say a stacktrace is not available for my error?
 
-   Stacktraces can only be collected for errors originated from browsers that
-   supports them, specifically Chrome, Firefox and recent versions of IE (10+)
+   Stacktraces can only be collected for errors originating from browsers that
+   support them, specifically Chrome, Firefox and recent versions of IE (10+)
    and Safari (6+).
 
    You might also need to need to setup CORS, see the previous question for

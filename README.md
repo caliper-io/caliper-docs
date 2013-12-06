@@ -8,22 +8,28 @@
 
 ## Run it locally
 
-1. [Install Harp](http://harpjs.com/docs/environment/install) on your computer
+0. Install the Node Package Manager (npm)
 
   ```bash
-  sudo npm install -g harp
+  brew install npm
   ```
 
-2. Clone this repository
+1. Clone this repository
 
   ```bash
-  git clone https://github.com/caliper-io/caliper-docs.git
+  git clone https://github.com/caliper-io/caliper-docs.git && cd caliper-docs
+  ```
+
+2. [Install Harp](http://harpjs.com/docs/environment/install) on your computer
+
+  ```bash
+  make setup
   ```
 
 3. Serve the Caliper docs:
 
   ```bash
-  harp server caliper-docs
+  make run
   ```
 
   Go to [http://localhost:9000](http://localhost:9000/) from your browser to see the site.
